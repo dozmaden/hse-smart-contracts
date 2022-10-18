@@ -15,10 +15,10 @@ contract MyToken is ERC20 {
     string private _name;
     string private _symbol;
 
-    constructor() ERC20("MyToken", "DEN") {
-        _name = "MyToken";
+    constructor() ERC20("DenToken", "DEN") {
+        _name = "DenToken";
         _symbol = "DEN";
-        _mint(msg.sender, 1000000000000 * 10**decimals());
+        _mint(msg.sender, 100);
         emit ContractCreated();
     }
 
