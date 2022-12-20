@@ -18,6 +18,8 @@ contract RockPaperScissorsGame {
         DONE
     }
 
+    event GameStatusUpdate(uint id, Status status);
+
     struct Player {
         address payable playerAddress;
 
@@ -49,6 +51,7 @@ contract RockPaperScissorsGame {
         game.secondPlayer.playerAddress = payable(secondPlayer);
         game.bet = msg.value;
         game.status = Status.CREATED;
+        emit GameStatusUpdate(gameId, game.status);
 
         allGames[gameId] = game;
         return gameId++;
@@ -70,6 +73,7 @@ contract RockPaperScissorsGame {
 
         if (allGames[id].firstPlayer.hashedShape != 0 && allGames[id].secondPlayer.hashedShape != 0) { 
             allGames[id].status = Status.COMMIT_PHASE;
+            emit GameStatusUpdate(id, allGames[id].status);
         }
     }
 
@@ -92,6 +96,7 @@ contract RockPaperScissorsGame {
 
         if (allGames[id].firstPlayer.choice != Shape.NULL && allGames[id].secondPlayer.choice != Shape.NULL) { 
             allGames[id].status = Status.REVEAL_PHASE;
+            emit GameStatusUpdate(id, allGames[id].status);
         }
     }
 
@@ -116,6 +121,7 @@ contract RockPaperScissorsGame {
 
         winner.transfer(allGames[id].bet*2);
         allGames[id].status = Status.DONE;
+        emit GameStatusUpdate(id, allGames[id].status);
         return winner;
     }
 
