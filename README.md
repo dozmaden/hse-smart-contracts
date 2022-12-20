@@ -2,6 +2,7 @@
 
 ## Решение
 [Ссылка на контракт](https://goerli.etherscan.io/address/0xd164a2a6ae01d359b16c9cbd292d2e9f2689af5d)
+
 [Ответы на вопросы](https://docs.google.com/document/d/1_hpiFPEwdfdbzP1bLRlUQaeGD-oAHKzsOQ2gBfJtlOA/edit?usp=sharing)
 
 
